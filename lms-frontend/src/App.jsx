@@ -1,3 +1,4 @@
+import Footer from "./Components/footer"
 
 
 function App() {
@@ -5,7 +6,8 @@ function App() {
 
   return (
   <>
-  manas
+  <Footer/>
+
   </>
   )
 }
