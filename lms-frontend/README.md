@@ -60,6 +60,11 @@ npx tailwindcss init -p
 @tailwind components;
 @tailwind utilities;
 ```
+6. Add the following plugins in tailwind.config.js file
+
+```
+plugins: [require("daisyui"),require("@tailwindcss/line-clamp")],
+```
 
 ### Adding Plugins and Dependencies
 

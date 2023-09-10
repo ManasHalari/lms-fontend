@@ -1,4 +1,10 @@
-import Footer from "./Components/footer"
+// import Footer from "./Components/footer"
+// import HomeLayout from "./Layouts/HomeLayout"
+import "./App.css"
+
+import { Route,Routes } from "react-router-dom"
+
+import HomePage from "./Pages/HomePage"
 
 
 function App() {
@@ -6,7 +12,9 @@ function App() {
 
   return (
   <>
-  <Footer/>
+  <Routes>
+    <Route path="/" element={<HomePage />} /> 
+  </Routes>
 
   </>
   )
