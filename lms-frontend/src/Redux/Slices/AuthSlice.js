@@ -40,7 +40,22 @@ export  const createAccount=createAsyncThunk("/auth/signup",
                toast.error(error?.response?.data?.message)
            }
                           })
-                                                                    
+export  const logOut=createAsyncThunk("/auth/logout",
+                          async ()=>{
+                  try{
+                      const res=axiosInastace.post("/logout",)
+                      toast.promise(res,{
+                          loading:"Wait,Logout is running.",
+                          success:(data)=>{
+                              return data?.data?.message;
+                          },
+                          error:"Logout Failed."
+                      })
+                      return (await res).data
+                  }catch(error){
+                      toast.error(error?.response?.data?.message)
+                  }
+                                 })                                  
 
                                                                     
 const authSlice=createSlice({
@@ -50,13 +65,20 @@ const authSlice=createSlice({
 
     },
     extraReducers:(builder)=>{
-        builder.addCase(onLogine.fulfilled,(state,action)=> {
+        builder
+        .addCase(onLogine.fulfilled,(state,action)=> {
                 localStorage.setItem("data",JSON.stringify(action?.payload?.user))
                 localStorage.isLoggedIn=true
                 localStorage.setItem("role",JSON.stringify(action?.payload?.user?.role))
                 state.isLoggedIn=true
                 state.data=action?.payload?.user
                 state.role=action?.payload?.user?.role
+        })
+        .addCase(logOut.fulfilled,(state)=>{
+            localStorage.clear()
+            state.data={};
+            state.isLoggedIn=false
+            state.role=""
         })
     }
 

@@ -79,7 +79,7 @@ function Login() {
 
                 </div>
                     <button type="submit" className="bg-yellow-600 mt-3 py-3 font-semibold cursor-pointer text-lg hover:bg-yellow-500 w-full rounded-md transition-all ease-in-out duration-300">
-                        Create account
+                        Login
                     </button>
                     <p className="text-center">
                         Don&apos;t have an Account <Link to="/signup" className="link text-accent ">Signup</Link>
