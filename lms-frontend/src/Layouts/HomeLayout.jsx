@@ -104,7 +104,7 @@ function HomeLayout({children}) {
                        <li>
                         <div  className="flex w-full">  
                          <button className="btn-primary px-6 py-2 font-semibold rounded-md w-full">
-                                <Link to="/user/profile">Your Profile</Link>
+                                <Link to="/user/profile"> Profile</Link>
                         </button>
                          <button className="btn-secondary px-4 py-2 font-semibold rounded-md w-full">
                                 <Link onClick={handleLogout}>Logout</Link>

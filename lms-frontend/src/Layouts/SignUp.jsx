@@ -64,11 +64,13 @@ function SignUp() {
         formData.append("email",signUpData.email)
         formData.append("password",signUpData.password)
         formData.append("avatar",signUpData.password)
+        console.log(formData);
+        
 
         //dispatch create account action
         const response= await dispatch(createAccount(formData))
         console.log(response);
-        if (response?.payload?.success)
+        if (response?.payload?.success){
             navigate("/")
             setSignUpData({
             name:"",
@@ -77,6 +79,7 @@ function SignUp() {
             avatar:""
                 })
         setPreviewImage("")
+            }
 
         
     }
@@ -143,7 +146,7 @@ function SignUp() {
                         Create account
                     </button>
                     <p className="text-center">
-                        Alreadt have an account <Link to="/login" className="link text-accent ">Login</Link>
+                        Already have an account <Link to="/login" className="link text-accent ">Login</Link>
                     </p>
                 </form>
                 
