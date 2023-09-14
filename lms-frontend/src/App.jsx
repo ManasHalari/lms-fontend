@@ -9,6 +9,7 @@ import Login from "./Layouts/Login"
 import SignUp from "./Layouts/SignUp"
 import Contact from "./Pages/Contact"
 import CourseList from "./Pages/Course/CourseList"
+import Denied from "./Pages/Denied"
 import HomePage from "./Pages/HomePage"
 import PageNotFound from "./Pages/PageNotFound"
 
@@ -26,6 +27,8 @@ function App() {
     <Route path="/contact" element={<Contact/>} /> 
 
     <Route path="/courses" element={<CourseList/> } /> 
+
+    <Route path="/denied" element={<Denied/>}/>
     <Route path="*" element={<PageNotFound/>} />
   </Routes>
 

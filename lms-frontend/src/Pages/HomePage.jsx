@@ -7,7 +7,7 @@ function HomePage() {
   return (
     
     <HomeLayout>
-         <div className="flex items-center justify-center pt-10 mx-10 mb-5 text-white gap-10 h-[85vh]">
+         <div className="flex items-center justify-center pt-10 mx-10 mb-5 text-white gap-10 h-[90vh]">
                 <div className="space-y-6 w-1/2 ">
                     <h1 className="text-5xl font-semibold mb-3">Find Out Best  <span className="text-yellow-500 font-bold ">Online Courses</span></h1>
                    
