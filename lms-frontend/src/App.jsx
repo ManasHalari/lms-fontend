@@ -7,6 +7,7 @@ import { Route,Routes } from "react-router-dom"
 import AboutUs from "./Layouts/AboutUs"
 import Login from "./Layouts/Login"
 import SignUp from "./Layouts/SignUp"
+import Contact from "./Pages/Contact"
 import CourseList from "./Pages/Course/CourseList"
 import HomePage from "./Pages/HomePage"
 import PageNotFound from "./Pages/PageNotFound"
@@ -21,7 +22,9 @@ function App() {
     <Route path="/" element={<HomePage />} /> 
     <Route path="/about" element={<AboutUs />} /> 
     <Route path="/signup" element={<SignUp />} /> 
-    <Route path="/login" element={<Login />} /> 
+    <Route path="/login" element={<Login />} />
+    <Route path="/contact" element={<Contact/>} /> 
+
     <Route path="/courses" element={<CourseList/> } /> 
     <Route path="*" element={<PageNotFound/>} />
   </Routes>
