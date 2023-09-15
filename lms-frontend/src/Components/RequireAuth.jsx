@@ -7,7 +7,7 @@ function RequireAuth({authRoles}) {
   return (
   <div>
     {
-        isLoggedIn && authRoles.find((e)=>e==role)?
+        isLoggedIn && authRoles.find((e)=>e===role)?
         (
             <Outlet/>
         ):
