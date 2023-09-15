@@ -6,7 +6,7 @@ import axiosInastace from "../../helpers/axiosInstance.js"
 const initialState={
     isLoggedIn:localStorage.getItem("isLoggedIn") || false,
     data:localStorage.getItem("data")||"",
-    role:localStorage.getItem("role")||""
+    role:"ADMIN"
 }
 export  const createAccount=createAsyncThunk("/auth/signup",
             async (data)=>{

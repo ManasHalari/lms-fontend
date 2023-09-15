@@ -35,4 +35,28 @@ const CourseSlice=createSlice({
         })
     }
 })
+export const createNewCourse=createAsyncThunk("/course/create",
+  async  (data)=>{
+   try {
+    
+    const formData=new FormData()
+    formData.append("data",data.title)
+    formData.append("category",data.category)
+    formData.append("createdBy",data.createdBy)
+    formData.append("description",data.description)
+    formData.append("thumbnail",data.thumbnail)
+    const response=axiosInstance.post("/courses",formData)
+    
+    toast.promise(response,{
+     loading:"Data is sending...",
+     success:"Successfully done.",
+     error:"Operation failed."
+    })
+    return (await response).data
+ }
+    catch (error) {
+     toast.error(error?.response?.message)
+                     }
+                  }
+)
 export default CourseSlice.reducer;

@@ -46,8 +46,8 @@ function HomeLayout({children}) {
             />
             </label>
             </div>
-            <div className="drawer-side w-0">
-            <label htmlFor="my-drawer" className="drawer-overlay"></label>
+            <div className="drawer-side w-0 ">
+            <label htmlFor="my-drawer" className="drawer-overlay "></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                 <li className="absolute right-2 w-fit z-50">
                         <button className="hideDrawer" onClick={hideDrawer}>
@@ -64,6 +64,15 @@ function HomeLayout({children}) {
                         <li>
                             <Link to="/admin/dashboard">
                                 Admin Dashboard
+                            </Link>
+                        </li>
+                    )
+                }
+                  {
+                    isLoggedIn && role==="ADMIN"&&(
+                        <li>
+                            <Link to="/courses/create">
+                                Create Course
                             </Link>
                         </li>
                     )
