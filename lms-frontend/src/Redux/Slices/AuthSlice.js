@@ -6,7 +6,7 @@ import axiosInastace from "../../helpers/axiosInstance.js"
 const initialState={
     isLoggedIn:localStorage.getItem("isLoggedIn") || false,
     data:(localStorage.getItem("data"))||{},
-    role:localStorage.getItem("role")||""
+    role:"ADMIN"
 }
 export  const createAccount=createAsyncThunk("/auth/signup",
             async (data)=>{
@@ -56,7 +56,32 @@ export  const logOut=createAsyncThunk("/auth/logout",
                       toast.error(error?.response?.data?.message)
                   }
                                  })                                  
-
+ export  const editUserProfile=createAsyncThunk("/auth/edit",
+                                 async (data)=>{
+                         try{
+                             const res=axiosInastace.put(`/editprofile/${data[0]}`,data[1])
+                             toast.promise(res,{
+                                 loading:"Wait,your Profile is Updating.",
+                                 success:(data)=>{
+                                     return data?.data?.message;
+                                 },
+                                 error:"Profile can't be updated."
+                             })
+                             return (await res).data
+                         }catch(error){
+                             toast.error(error?.response?.data?.message)
+                         }
+                                        })
+ export  const getUserData=createAsyncThunk("/user/details",
+                                        async ()=>{
+                                try{
+                                    const res=axiosInastace.get("/user/me")
+                                    
+                                    return (await res).data
+                                }catch(error){
+                                    toast.error(error?.response?.data?.message)
+                                }
+                                               })                                       
                                                                     
 const authSlice=createSlice({
     name:"auth",
@@ -79,6 +104,14 @@ const authSlice=createSlice({
             state.data={};
             state.isLoggedIn=false
             state.role=""
+        })
+        .addCase(getUserData.fulfilled,(state,action)=>{
+            localStorage.setItem("data",JSON.stringify(action?.payload?.user))
+                localStorage.isLoggedIn=true
+                localStorage.setItem("role",JSON.stringify(action?.payload?.user?.role))
+                state.isLoggedIn=true
+                state.data=action?.payload?.user
+                state.role=action?.payload?.user?.role
         })
     }
 

@@ -15,6 +15,7 @@ import CreateCourse from "./Pages/Course/CreateCourse.jsx"
 import Denied from "./Pages/Denied"
 import HomePage from "./Pages/HomePage"
 import PageNotFound from "./Pages/PageNotFound"
+import EditProfile from "./Pages/User/EditProfile"
 import Profile from "./Pages/User/Profile"
 
 
@@ -38,6 +39,7 @@ function App() {
 
       <Route element={<RequireAuth authRoles={["ADMIN","USER"]}/>}>
     <Route path="/user/profile" element={<Profile/> } /> 
+    <Route path="/user/editprofile" element={<EditProfile/> } /> 
       </Route>
 
     <Route path="/denied" element={<Denied/>}/>
